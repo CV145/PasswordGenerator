@@ -123,6 +123,6 @@ textarea {
 }
 
 .buttons {
-    display: flex;
+    display: flow-root; 
 }
 
