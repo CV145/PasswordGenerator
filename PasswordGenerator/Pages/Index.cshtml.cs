@@ -8,7 +8,8 @@ namespace PasswordGenerator.Pages
     {
         private readonly ILogger<IndexModel> _logger;
 
-        [Range(8, 12,
+        public string? generatedPassword { get; set; } 
+        [Range(4, 20,
         ErrorMessage = "Value for {0} must be between {1} and {2}.")]
         public int PasswordLength { get; set; } = 8;
         public bool IncludeUppercase { get; set; } = true;
@@ -27,6 +28,12 @@ namespace PasswordGenerator.Pages
         public void OnGet()
         {
 
+        }
+
+        public void OnPost()
+        {
+            //Generate password
+            generatedPassword = "password";
         }
     }
 }
