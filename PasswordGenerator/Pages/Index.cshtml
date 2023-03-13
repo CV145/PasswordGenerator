@@ -4,38 +4,51 @@
     //use asp-for to bind form elements to model
 }
 
-<div class="container">
+
+<form method="post">
+    <div class="container">
     <h2>Password Generator</h2>
     <div class="result-container">
-        <textarea asp-for="generatedPassword "id="PasswordResult"></textarea>
+        <textarea asp-for="GeneratedPassword "id="PasswordResult"></textarea>
     </div>
     <div class="settings">
         <div class="setting">
             <label>Password length</label>
-            <input asp-for="PasswordLength" type="number" id="Passwordlength" min="4" max="20" value="8" />
+            <input asp-for="PasswordLength" type="number" id="Passwordlength" min="4" max="20"  />
         </div>
         <div class="setting">
             <label>Include uppercase letters</label>
-            <input asp-for="IncludeUppercase" type="checkbox" id="uppercase" checked />
+            <input asp-for="IncludeUppercase" type="checkbox" id="uppercase" />
         </div>
         <div class="setting">
             <label>Include lowercase letters</label>
-            <input asp-for=IncludeLowercase type="checkbox" id="lowercase" checked />
+            <input asp-for=IncludeLowercase type="checkbox" id="lowercase" />
         </div>
         <div class="setting">
             <label>Include numbers</label>
-            <input type="checkbox" id="numbers" checked />
+                <input asp-for=IncludeNumbers type="checkbox" id="numbers" />
         </div>
         <div class="setting">
             <label>Include symbols</label>
-            <input type="checkbox" id="symbols" checked />
+                <input asp-for=IncludeSymbols type="checkbox" id="symbols" />
         </div>
     </div>
-    <div class="buttons">
-        <form method="post">
-            <button class="btn btn-large" id="generateBtn">
-                <i class="fas fa-key"></i> Generate
+        <button type="submit" class="btn btn-large" id="generateBtn">
+            <i class="fas fa-key"></i> Generate
+        </button>
+        <!--<button type="button" class="btn btn-large" onclick="copyToClipboard(@Model.GeneratedPassword)">
+            Copy
             </button>
-        </form>
+
+        <script>
+            function copyToClipboard(text) {
+                console.log(text);
+                navigator.clipboard.writeText(text);
+
+                // Alert the copied text
+                alert("Copied the text: " + copyText.value);
+            }
+        </script>-->
+
     </div>
-</div>
+ </form>
